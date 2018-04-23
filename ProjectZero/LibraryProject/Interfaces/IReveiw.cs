@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectZero.Client
+namespace ProjectZero.Libraries.Interfaces
 {
-    class ClientConsole
+    interface IReview
     {
-        static void Main(string[] args)
-        {
-        }
+        int ID { get; set; }
+        decimal Rating { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Paladrone paladrone = new Paladrone("racecar");
-            Console.WriteLine(paladrone.isPaladrone());
-
+            Palindrome Palindrome = new Palindrome("never Odd, or Even.");
+            Console.WriteLine(Palindrome.isPalindrome());
+            Console.ReadKey();
         }
     }
 }

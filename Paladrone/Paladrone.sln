@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paladrone", "Paladrone\Paladrone.csproj", "{021EAB8B-2F87-4C8D-B125-A991FD0D7ABA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palindrone", "Paladrone\Palindrone.csproj", "{021EAB8B-2F87-4C8D-B125-A991FD0D7ABA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libraries", "Libraries\Libraries.csproj", "{680D2B1A-3E7E-4824-81A2-B85C699FEA13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaladroneUnitTest", "PaladroneUnitTest\PaladroneUnitTest.csproj", "{4F7C5AE2-89EA-4FAE-8653-FBB372F804FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindroneUnitTest", "PaladroneUnitTest\PalindroneUnitTest.csproj", "{4F7C5AE2-89EA-4FAE-8653-FBB372F804FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

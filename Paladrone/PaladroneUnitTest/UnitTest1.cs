@@ -10,45 +10,45 @@ namespace PaladroneUnitTest
         [TestMethod]
         public void isPaladroneEmptyTestMethod1()
         {
-            Paladrone paladrone = new Paladrone();
+            Palindrome palindrome = new Palindrome();
             bool expected = true;
-            bool actual = paladrone.isPaladrone();
+            bool actual = palindrome.isPalindrome();
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void isPaladroneRacecarTestMethod1()
         {
-            Paladrone paladrone = new Paladrone("racecar");
+            Palindrome paladrone = new Palindrome("racecar");
             bool expected = true;
-            bool actual = paladrone.isPaladrone();
+            bool actual = paladrone.isPalindrome();
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void isPaladrone1221TestMethod1()
         {
-            Paladrone paladrone = new Paladrone("1221");
+            Palindrome paladrone = new Palindrome("1221");
             bool expected = true;
-            bool actual = paladrone.isPaladrone();
+            bool actual = paladrone.isPalindrome();
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void isPaladroneEvenOddTestMethod1()
         {
-            Paladrone paladrone = new Paladrone("never Odd or Even");
+            Palindrome paladrone = new Palindrome("never Odd, or Even.");
             bool expected = true;
-            bool actual = paladrone.isPaladrone();
+            bool actual = paladrone.isPalindrome();
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void isPaladroneabcTestMethod1()
         {
-            Paladrone paladrone = new Paladrone("abc");
+            Palindrome paladrone = new Palindrome("abc");
             bool expected = false;
-            bool actual = paladrone.isPaladrone();
+            bool actual = paladrone.isPalindrome();
             Assert.AreEqual(expected, actual);
         }
     }

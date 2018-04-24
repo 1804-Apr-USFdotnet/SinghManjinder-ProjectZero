@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ProjectZero.UnitTest
@@ -7,8 +8,9 @@ namespace ProjectZero.UnitTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void RestaurantTestMethod()
         {
+            //XmlSerializer serializer = new XmlSerializer(typeof(List<Restaurant>));
         }
     }
 }

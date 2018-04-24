@@ -7,12 +7,30 @@ using System.Threading.Tasks;
 
 namespace ProjectZero.Libraries.Classes
 {
-    public class Review : IReview
+    public class Review : IReview, IComparable<Review>
     {
-        private int _id; // ID of the review
-        private decimal _rating; // Rating
+        private int _id;            // Review ID
+        private string _author;     // Author of the review
+        private int _rating;    // Given rating
 
         public int ID { get { return _id; } set { _id = value; } }
-        public decimal Rating { get { return _rating; } set { _rating = value; } }
+        public string Author { get { return _author; } set { _author = value; } }
+        public int Rating { get { return _rating; } set { _rating = value; } }
+
+        public Review(int id, string author, int rating)
+        {
+            _id = id;
+            _author = author;
+            _rating = rating;
+        }
+
+        // This method is called by List().Sort() method to sort the list into Ascending Order
+        public int CompareTo(Review other)
+        {
+            if (other == null)
+                return 1;
+            else
+                return Rating.CompareTo(other.Rating);
+        }
     }
 }

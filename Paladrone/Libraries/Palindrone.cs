@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Libraries
@@ -33,6 +34,11 @@ namespace Libraries
                 }
             }
             s = test.ToString();
+
+            // Testing out the regex class
+            var r = new Regex(@"\p{P}");
+            str = r.Replace(str, ""); // removes all of the punctuation marks, still need to remove all of the spaces
+
 
             for (int i = 0, j = s.Count() - 1; i <= j; i++, j--)
             {

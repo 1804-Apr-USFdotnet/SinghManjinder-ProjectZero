@@ -9,6 +9,7 @@ namespace ProjectZero.Libraries.Interfaces
     interface IReview
     {
         int ID { get; set; }
-        decimal Rating { get; set; }
+        string Author { get; set; }
+        int Rating { get; set; }
     }
 }

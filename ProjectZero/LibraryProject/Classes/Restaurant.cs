@@ -18,6 +18,7 @@ namespace ProjectZero.Libraries.Classes
         private int _id;
         private Decimal _rating;
         private List<Review> _reviews;
+        private Logger logger = LogManager.GetCurrentClassLogger();
 
         public string Name { get { return _name; } set { _name = value; } }
 
@@ -32,6 +33,8 @@ namespace ProjectZero.Libraries.Classes
         public int RestaurantID { get { return _id; } set { _id = value; } }
 
         public Decimal Rating { get { return _rating; } set { _rating = value; } }
+        
+        public List<Review> Reviews { get { return _reviews; } set { _reviews = value; } }
 
         public Restaurant()
         {
@@ -88,7 +91,14 @@ namespace ProjectZero.Libraries.Classes
                 rating += review.Rating; // Add all of the ratings together
             }
 
-            rating = rating / _reviews.Count(); // Calculate the average by dividing by the total number of ratings
+            try
+            {
+                rating = rating / _reviews.Count();
+            }
+            catch (DivideByZeroException de)
+            {
+                logger.Error(de.Message);
+            }
 
             return rating;
         }

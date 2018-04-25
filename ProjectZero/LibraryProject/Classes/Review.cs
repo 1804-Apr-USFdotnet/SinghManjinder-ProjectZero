@@ -17,6 +17,13 @@ namespace ProjectZero.Libraries.Classes
         public string Author { get { return _author; } set { _author = value; } }
         public int Rating { get { return _rating; } set { _rating = value; } }
 
+        public Review()
+        {
+            _id = 0;
+            _author = "";
+            _rating = 0;
+        }
+
         public Review(int id, string author, int rating)
         {
             _id = id;

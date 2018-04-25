@@ -27,7 +27,10 @@ namespace ProjectZero.Client
                 //Libraries.Classes.DataHandler  dh = new Libraries.Classes.DataHandler();
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Restaurant>));
 
-                List<Restaurant> restaurants = new List<Restaurant>();
+                DataHandler dh = new DataHandler();
+                List<Restaurant> restaurants = dh.Read();
+
+                //List<Restaurant> restaurants = new List<Restaurant>();
                 var rw = new List<Review>();
                 rw.Add(new Review(0, "Singh", 3));
                 rw.Add(new Review(1, "Ott", 2));

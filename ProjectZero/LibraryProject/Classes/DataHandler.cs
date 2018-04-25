@@ -13,23 +13,29 @@ namespace ProjectZero.Libraries.Classes
 {
     public class DataHandler : IDataHandler
     {
-        XmlSerializer serializer;
-        ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
-        string source;
+        private XmlSerializer serializer;
+        private string source;
         private Logger logger = LogManager.GetCurrentClassLogger();
 
         public List<Restaurant> Read()
         {
             List<Restaurant> restaurants = new List<Restaurant>();
-            source = settings[0].ConnectionString;
-            
+            source = ConfigurationManager.AppSettings["Source"];
+
             TextReader reader;
             try
             {
                 reader = new StreamReader(source); // Create a Reader
 
-                serializer = new XmlSerializer(typeof(List<Restaurant>));
-                restaurants = (List<Restaurant>) serializer.Deserialize(reader); // Deserialize and store the list
+                try
+                {
+                    serializer = new XmlSerializer(typeof(List<Restaurant>));
+                    restaurants = (List<Restaurant>)serializer.Deserialize(reader); // Deserialize and store the list
+                }
+                catch (InvalidOperationException se)
+                {
+                    logger.Error(se.Message);
+                }
 
                 // Close the Reader
                 reader.Close();
@@ -50,7 +56,7 @@ namespace ProjectZero.Libraries.Classes
 
         public void Write(List<Restaurant> restaurants)
         {
-            source = settings[0].ConnectionString;
+            source = ConfigurationManager.AppSettings["Source"];
             // Create a Writer
             TextWriter writer;
 

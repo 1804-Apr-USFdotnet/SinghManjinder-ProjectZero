@@ -8,7 +8,7 @@ namespace ProjectZero.Libraries.Interfaces
 {
     interface IReview
     {
-        int ID { get; set; }
+        int ReviewID { get; set; }
         string Author { get; set; }
         int Rating { get; set; }
     }

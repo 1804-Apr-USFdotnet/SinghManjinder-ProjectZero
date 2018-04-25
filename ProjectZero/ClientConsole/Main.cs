@@ -32,9 +32,9 @@ namespace ProjectZero.Client
                 rw.Add(new Review(0, "Singh", 3));
                 rw.Add(new Review(1, "Ott", 2));
                 rw.Add(new Review(2, "Ash", 4));
-                var r = new Restaurant(0, "WendY", "123 W Main St Tampa FL, 12345", rw);
+                var r = new Restaurant(0, "WendY", "123 W Main St",  "Tampa", "FL", 12345, rw);
                 restaurants.Add(r);
-                r = new Restaurant(1, "BurgerKing", "122 W Main St Tampa FL, 12345", rw);
+                r = new Restaurant(1, "BurgerKing", "122 W Main St", "Tampa", "FL", 12345, rw);
                 restaurants.Add(r);
                 TextWriter writer = new StreamWriter("data.xml");
 

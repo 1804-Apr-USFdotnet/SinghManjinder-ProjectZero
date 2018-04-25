@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLog;
 
 namespace ProjectZero.Libraries.Classes
 {
@@ -11,6 +12,9 @@ namespace ProjectZero.Libraries.Classes
     {
         private string _name;
         private string _address;
+        private string _city;
+        private string _state;
+        private int _zipcode;
         private int _id;
         private Decimal _rating;
         private List<Review> _reviews;
@@ -19,7 +23,13 @@ namespace ProjectZero.Libraries.Classes
 
         public string Address { get { return _address; } set { _address = value; } }
 
-        public int ID { get { return _id; } set { _id = value; } }
+        public string City { get { return _city; } set { _city = value; } }
+
+        public string State { get { return _state; } set { _state = value; } }
+
+        public int Zipcode { get { return _zipcode; } set { _zipcode = value; } }
+
+        public int RestaurantID { get { return _id; } set { _id = value; } }
 
         public Decimal Rating { get { return _rating; } set { _rating = value; } }
 
@@ -27,16 +37,23 @@ namespace ProjectZero.Libraries.Classes
         {
             _name = "";
             _address = "";
+            _city = "";
+            _state = "";
+            _zipcode = 00000;
             _id = 0;
             _reviews = new List<Review>();
             _rating = ComputeRating();
         }
 
-        public Restaurant(int id, string name, string address, List<Review> reviews)
+        public Restaurant(int id, string name, string address, string city, string state, int zip, List<Review> reviews)
         {
             _id = id;
             _name = name;
             _address = address;
+            _city = city;
+            _state = state;
+            _zipcode = zip;
+
             if (reviews != null)
             {
                 _reviews = reviews;

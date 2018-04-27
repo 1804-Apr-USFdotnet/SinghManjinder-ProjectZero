@@ -18,6 +18,5 @@ namespace ProjectZero.Libraries.Interfaces
 
         void SortReviews(string criteria);    // Sort through the reviews using the criteria
         Decimal ComputeRating();        // Compute the average rating from the reviews
-
     }
 }

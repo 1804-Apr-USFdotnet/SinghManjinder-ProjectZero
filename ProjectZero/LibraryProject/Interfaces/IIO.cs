@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectZero.Libraries.Classes;
 
 namespace ProjectZero.Libraries.Interfaces
 {
@@ -10,6 +11,6 @@ namespace ProjectZero.Libraries.Interfaces
     {
         string MenuOptions();
         string Result(int input);
-        int ReadInput();
+        List<Restaurant> Search(string searchString);
     }
 }

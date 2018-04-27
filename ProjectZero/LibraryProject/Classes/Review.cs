@@ -39,5 +39,15 @@ namespace ProjectZero.Libraries.Classes
             else
                 return Rating.CompareTo(other.Rating);
         }
+
+        public override string ToString()
+        {
+            StringBuilder revString = new StringBuilder();
+
+            revString.Append(Author + " ");
+            revString.Append(Rating.ToString());
+
+            return revString.ToString();
+        }
     }
 }

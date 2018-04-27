@@ -52,12 +52,14 @@
     <Compile Include="Classes\DataHandler.cs" />
     <Compile Include="Classes\FileLogger.cs" />
     <Compile Include="Classes\Review.cs" />
+    <Compile Include="Classes\Functionality.cs" />
     <Compile Include="Interfaces\IDataHandler.cs" />
     <Compile Include="Interfaces\IIO.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IRestaurants.cs" />
     <Compile Include="Interfaces\IReveiw.cs" />
     <Compile Include="Classes\Restaurant.cs" />
+    <Compile Include="Interfaces\IFunctionality.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

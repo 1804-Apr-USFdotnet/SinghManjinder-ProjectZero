@@ -12,6 +12,7 @@ namespace ProjectZero.Libraries.Classes
     {
 
         public static Logger logger = LogManager.GetCurrentClassLogger();
+        private Functionality func = new Functionality();
 
         public string MenuOptions()
         {
@@ -19,9 +20,9 @@ namespace ProjectZero.Libraries.Classes
             return options;
         }
 
-        public int ReadInput()
+        public List<Restaurant> Search(string searchString)
         {
-            throw new NotImplementedException();
+            return func.SearchRestaurantsByName(searchString);
         }
 
         public string Result(int input)

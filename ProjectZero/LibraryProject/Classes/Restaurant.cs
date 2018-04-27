@@ -111,5 +111,25 @@ namespace ProjectZero.Libraries.Classes
             else
                 return Rating.CompareTo(other.Rating); // Returns the greater one
         }
+
+        public override string ToString()
+        {
+            StringBuilder restString = new StringBuilder();
+            restString.Append(Name + " ");
+            restString.Append(Address + " ");
+            restString.Append(City + " ");
+            restString.Append(State + " ");
+            restString.Append(Zipcode.ToString() + " ");
+            restString.Append(Rating.ToString() + " ");
+            foreach (var review in Reviews)
+            {
+                if (review != Reviews[Reviews.Count - 1])
+                    restString.Append(review.ToString() + " ");
+                else
+                    restString.Append(review.ToString());
+            }
+
+            return restString.ToString();
+        }
     }
 }

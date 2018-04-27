@@ -53,6 +53,7 @@
     <Compile Include="Classes\FileLogger.cs" />
     <Compile Include="Classes\Review.cs" />
     <Compile Include="Classes\Functionality.cs" />
+    <Compile Include="Classes\Reviews.cs" />
     <Compile Include="Interfaces\IDataHandler.cs" />
     <Compile Include="Interfaces\IIO.cs" />
     <Compile Include="Interfaces\ILogger.cs" />

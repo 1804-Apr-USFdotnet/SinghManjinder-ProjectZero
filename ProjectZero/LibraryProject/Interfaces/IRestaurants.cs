@@ -14,9 +14,9 @@ namespace ProjectZero.Libraries.Interfaces
         string City { get; set; }       // The city the restaurant is in
         string State { get; set; }      // The state the restaurant is in
         int Zipcode { get; set; }       // The zip code of the restaurant
-        Decimal Rating { get; set; }    // The average rating of the restaurant
+        double Rating { get; set; }    // The average rating of the restaurant
 
         void SortReviews(string criteria);    // Sort through the reviews using the criteria
-        Decimal ComputeRating();        // Compute the average rating from the reviews
+        double ComputeRating();        // Compute the average rating from the reviews
     }
 }

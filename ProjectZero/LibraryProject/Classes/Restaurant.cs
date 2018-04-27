@@ -16,7 +16,8 @@ namespace ProjectZero.Libraries.Classes
         private string _state;
         private int _zipcode;
         private int _id;
-        private Decimal _rating;
+        private double _rating;
+        private int _reviewsID;
         private List<Review> _reviews;
         private Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -32,7 +33,9 @@ namespace ProjectZero.Libraries.Classes
 
         public int RestaurantID { get { return _id; } set { _id = value; } }
 
-        public Decimal Rating { get { return _rating; } set { _rating = value; } }
+        public double Rating { get { return _rating; } set { _rating = value; } }
+
+        public int ReviewsID { get { return _reviewsID; } set { _reviewsID = value; } }
         
         public List<Review> Reviews { get { return _reviews; } set { _reviews = value; } }
 
@@ -44,11 +47,12 @@ namespace ProjectZero.Libraries.Classes
             _state = "";
             _zipcode = 00000;
             _id = 0;
+            _reviewsID = 0;
             _reviews = new List<Review>();
             _rating = ComputeRating();
         }
 
-        public Restaurant(int id, string name, string address, string city, string state, int zip, List<Review> reviews)
+        public Restaurant(int id, string name, string address, string city, string state, int zip, int rID, List<Review> reviews)
         {
             _id = id;
             _name = name;
@@ -56,6 +60,7 @@ namespace ProjectZero.Libraries.Classes
             _city = city;
             _state = state;
             _zipcode = zip;
+            _reviewsID = rID;
 
             if (reviews != null)
             {
@@ -81,9 +86,9 @@ namespace ProjectZero.Libraries.Classes
         }
 
         // This method will compute the overall rating for the Restaurant based on all of the reviews
-        public decimal ComputeRating()
+        public double ComputeRating()
         {
-            decimal rating = 0.0m;
+            double rating = 0.0;
 
             // Iterate through the reviews to grab each of the ratings
             foreach (var review in _reviews)

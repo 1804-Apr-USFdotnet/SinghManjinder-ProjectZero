@@ -12,15 +12,20 @@ namespace DataAccess
     {
         private RestaurantDBEntities db;
 
-        public List<Restaurant> GetAllRestaurants()
+        public List<PLC.Restaurant> GetAllRestaurants()
         {
             List<Restaurant> restaurants;
+            List<PLC.Restaurant> rests = new List<PLC.Restaurant>();
             using (db = new RestaurantDBEntities())
             {
                 restaurants = db.Restaurants.ToList();
+                foreach (var r in restaurants)
+                {
+                    rests.Add(DataToLibrary(r));
+                }
             }
 
-            return restaurants;
+            return rests;
         }
 
         public void AddRestaurant(PLC.Restaurant restaurant)
@@ -29,6 +34,31 @@ namespace DataAccess
             {
                 db.Restaurants.Add(LibraryToData(restaurant));
                 db.SaveChanges();
+            }
+        }
+
+        // Update all Restaurant's records Rating to contain its average rating from the reviews
+        public void UpdateAverageRating()
+        {
+            using (db = new RestaurantDBEntities())
+            {
+                foreach (var rest in db.Restaurants)
+                {
+                    double averageRating = 0.0;
+                    double reviewCount = 0;
+                    foreach (var rev in db.Reviews1)
+                    {
+                        if (rev.RestaurantID == rest.RestaurantID)
+                        {
+                            var reviewstable = db.Reviews.ToList();
+                            averageRating += reviewstable.ElementAt((int)rev.ReviewID -1).Rating;
+                            reviewCount++;
+                        }
+                    }
+                    averageRating = averageRating / reviewCount; // average rating
+                    rest.Rating = averageRating;
+                }
+                db.SaveChanges(); // save the changes made
             }
         }
 
@@ -42,7 +72,6 @@ namespace DataAccess
                 State = restaurant.State,
                 ZipCode = restaurant.Zipcode,
                 Rating = restaurant.Rating,
-                Reviews = restaurant.ReviewsID
             };
 
             return rest;
@@ -59,7 +88,6 @@ namespace DataAccess
                 State = rest.State,
                 Zipcode = rest.ZipCode,
                 Rating = (double)rest.Rating,
-                ReviewsID = (int)rest.Reviews
             };
 
             return r;

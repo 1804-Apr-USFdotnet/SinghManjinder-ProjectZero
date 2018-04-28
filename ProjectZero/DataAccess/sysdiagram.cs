@@ -12,13 +12,12 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Review1
+    public partial class sysdiagram
     {
-        public int ID { get; set; }
-        public Nullable<int> RestaurantID { get; set; }
-        public Nullable<int> ReviewID { get; set; }
-    
-        public virtual Restaurant Restaurant { get; set; }
-        public virtual Review Review { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

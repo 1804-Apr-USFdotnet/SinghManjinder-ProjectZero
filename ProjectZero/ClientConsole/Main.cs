@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using ProjectZero.Libraries.Classes;
+using DataAccess;
 using System.Xml.Serialization;
 
 namespace ProjectZero.Client
@@ -50,18 +51,27 @@ namespace ProjectZero.Client
                 System.Console.WriteLine("Select an item from the menu:");
                 System.Console.WriteLine(io.MenuOptions());
                 input = Convert.ToInt32(System.Console.ReadLine()); // Convert the input from string to an integer
-                while (input != 9)
+
+                if (input == 1)
                 {
-                    if (input == 1)
+                    System.Console.WriteLine("Enter the name of the restaurant:");
+                    string ins = System.Console.ReadLine();
+                    var result = io.Search(ins);
+                    System.Console.WriteLine(result[0].ToString());
+                }
+                else if (input == 2)
+                {
+                    // Sort the Reviews
+                    AccessHelper ah = new AccessHelper();
+                    ah.UpdateAverageRating();
+                }
+                else if (input == 3)
+                {
+                    AccessHelper ah = new AccessHelper();
+                    var rests = ah.GetAllRestaurants();
+                    foreach (var r in rests)
                     {
-                        System.Console.WriteLine("Enter the name of the restaurant:");
-                        string ins = System.Console.ReadLine();
-                        var result = io.Search(ins);
-                        System.Console.WriteLine(result[0].ToString());
-                    }
-                    else if (input == 2)
-                    {
-                        // Sort the Reviews
+                        System.Console.WriteLine(r.ToString());
                     }
                 }
 

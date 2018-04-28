@@ -16,7 +16,7 @@ namespace ProjectZero.Libraries.Interfaces
         int Zipcode { get; set; }       // The zip code of the restaurant
         double Rating { get; set; }    // The average rating of the restaurant
 
-        void SortReviews(string criteria);    // Sort through the reviews using the criteria
-        double ComputeRating();        // Compute the average rating from the reviews
+        //void SortReviews(string criteria);    // Sort through the reviews using the criteria
+        //double ComputeRating();        // Compute the average rating from the reviews
     }
 }

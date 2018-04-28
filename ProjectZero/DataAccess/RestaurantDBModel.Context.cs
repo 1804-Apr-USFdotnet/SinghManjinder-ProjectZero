@@ -25,6 +25,7 @@ namespace DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Review1> Reviews1 { get; set; }

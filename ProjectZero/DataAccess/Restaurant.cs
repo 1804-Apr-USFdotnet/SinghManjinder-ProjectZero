@@ -14,6 +14,12 @@ namespace DataAccess
     
     public partial class Restaurant
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Restaurant()
+        {
+            this.Reviews = new HashSet<Review1>();
+        }
+    
         public int RestaurantID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
@@ -21,8 +27,8 @@ namespace DataAccess
         public string State { get; set; }
         public int ZipCode { get; set; }
         public Nullable<double> Rating { get; set; }
-        public Nullable<int> Reviews { get; set; }
     
-        public virtual Review1 Review { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Review1> Reviews { get; set; }
     }
 }

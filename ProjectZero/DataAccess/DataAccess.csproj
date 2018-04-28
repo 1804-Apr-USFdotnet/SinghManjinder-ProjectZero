@@ -52,61 +52,64 @@
     <Compile Include="AccessHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant.cs">
-      <DependentUpon>RRModel.tt</DependentUpon>
+      <DependentUpon>RestaurantDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Review.cs">
-      <DependentUpon>RRModel.tt</DependentUpon>
+      <DependentUpon>RestaurantDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Review1.cs">
-      <DependentUpon>RRModel.tt</DependentUpon>
+      <DependentUpon>RestaurantDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RRModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RRModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RRModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RRModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RRModel.edmx</DependentUpon>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>RestaurantDBModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="RRModel.edmx">
+    <EntityDeploy Include="RestaurantDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RRModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>RestaurantDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="RRModel.edmx.diagram">
-      <DependentUpon>RRModel.edmx</DependentUpon>
+    <None Include="RestaurantDBModel.edmx.diagram">
+      <DependentUpon>RestaurantDBModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RRModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RRModel.edmx</DependentUpon>
-      <LastGenOutput>RRModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="RRModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RRModel.edmx</DependentUpon>
-      <LastGenOutput>RRModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\LibraryProject\Libraries.csproj">
       <Project>{7c429818-07f1-43c8-9896-2a7a4ac13c5e}</Project>
       <Name>Libraries</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RestaurantDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RestaurantDBModel.edmx</DependentUpon>
+      <LastGenOutput>RestaurantDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RestaurantDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RestaurantDBModel.edmx</DependentUpon>
+      <LastGenOutput>RestaurantDBModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

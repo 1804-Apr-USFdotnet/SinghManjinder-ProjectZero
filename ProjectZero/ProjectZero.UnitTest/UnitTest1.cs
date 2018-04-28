@@ -26,7 +26,7 @@ namespace ProjectZero.UnitTest
         {
             DataHandler dh = new DataHandler();
             List<Restaurant> restaurants = new List<Restaurant>();
-            restaurants.Add(new Restaurant(1, "Carl's Jr", "678 Bearss St", "Tampa", "FL", 98765, new List<Review>()));
+            restaurants.Add(new Restaurant(1, "Carl's Jr", "678 Bearss St", "Tampa", "FL", 98765));
 
             dh.Write(restaurants);
             List<Restaurant> r = dh.Read();
@@ -40,12 +40,11 @@ namespace ProjectZero.UnitTest
         public void CreateRestaurantListTestMethod()
         {
             List<Restaurant> restaurants = new List<Restaurant>();
-            var r = new Restaurant(1, "Mission BBQ", "12434 Bruce B Downs", "Tampa", "FL", 90778, new List<Review>());
+            var r = new Restaurant(1, "Mission BBQ", "12434 Bruce B Downs", "Tampa", "FL", 90778);
             restaurants.Add(r);
             r.Name = "Happi Wok";
             r.RestaurantID = 2;
             r.Address = "12345 Fletcher Rd";
-            r.Reviews.Add(new Review(1, "Singh", 2));
             restaurants.Add(r);
 
             int expected = 2;

@@ -12,6 +12,7 @@ namespace DataAccess
     {
         private RestaurantDBEntities db;
 
+        // Return a list of all of the restaurants in the database
         public List<PLC.Restaurant> GetAllRestaurants()
         {
             List<Restaurant> restaurants;
@@ -28,6 +29,27 @@ namespace DataAccess
             return rests;
         }
 
+        // Return a list of all the reviews for the specified restaurant
+        public List<PLC.Review> GetAllOfRestaurantsReviews(int restaurantID)
+        {
+            List<PLC.Review> reviews = new List<PLC.Review>();
+
+            using (db = new RestaurantDBEntities())
+            {
+                var rvs = db.Reviews.ToList();
+                foreach (var record in db.Reviews1.ToList())
+                {
+                    if (record.RestaurantID == restaurantID)
+                    {
+                        reviews.Add(ReviewDataToLibraryReview(rvs.ElementAt((int)record.ReviewID - 1)));
+                    }
+                }
+            }
+
+            return reviews;
+        }
+
+        // Add a Restaurant to the database
         public void AddRestaurant(PLC.Restaurant restaurant)
         {
             using (db = new RestaurantDBEntities())
@@ -62,6 +84,7 @@ namespace DataAccess
             }
         }
 
+        // Convert a PLC.Restaurant object to a Restuarant.Restuarant table object
         public Restaurant LibraryToData(PLC.Restaurant restaurant)
         {
             Restaurant rest = new Restaurant()
@@ -77,6 +100,20 @@ namespace DataAccess
             return rest;
         }
 
+        // Convert a PLC.Review object to a Restaurant.Review table object
+        public Review LibraryReviewToDataReview(PLC.Review review)
+        {
+            Review r = new Review()
+            {
+                ReviewID = review.ReviewID,
+                Author = review.Author,
+                Rating = review.Rating
+            };
+
+            return r;
+        }
+
+        // Convert a Restaurant.Restaurant table object to a PLC.Restaurant object
         public PLC.Restaurant DataToLibrary(Restaurant rest)
         {
             PLC.Restaurant r = new PLC.Restaurant()
@@ -88,6 +125,19 @@ namespace DataAccess
                 State = rest.State,
                 Zipcode = rest.ZipCode,
                 Rating = (double)rest.Rating,
+            };
+
+            return r;
+        }
+
+        // Convert a Restaurant.Review table object to a PLC.Review object
+        public PLC.Review ReviewDataToLibraryReview(Review review)
+        {
+            PLC.Review r = new PLC.Review()
+            {
+                ReviewID = review.ReviewID,
+                Author = review.Author,
+                Rating = review.Rating
             };
 
             return r;

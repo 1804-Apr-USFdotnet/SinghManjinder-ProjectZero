@@ -62,16 +62,21 @@ namespace ProjectZero.Client
                 else if (input == 2)
                 {
                     // Sort the Reviews
-                    AccessHelper ah = new AccessHelper();
-                    ah.UpdateAverageRating();
+                    //AccessHelper ah = new AccessHelper();
+                    //ah.UpdateAverageRating();
+
+                    System.Console.WriteLine(func.PrintTopThreeRestaurants());
                 }
                 else if (input == 3)
                 {
-                    AccessHelper ah = new AccessHelper();
-                    var rests = ah.GetAllRestaurants();
+                    //AccessHelper ah = new AccessHelper();
+                    //var rests = ah.GetAllRestaurants();
+                    var rests = func.AllRestaurants();
+                    int count = 1;
                     foreach (var r in rests)
                     {
-                        System.Console.WriteLine(r.ToString());
+                        System.Console.WriteLine(count + ".)\t" + r.ToString());
+                        count++;
                     }
                 }
 

@@ -30,6 +30,7 @@ namespace ProjectZero.Libraries.Classes
         // Returns a list of all of the Restaurants within the database
         public List<Restaurant> AllRestaurants(string order = "")
         {
+            List<Restaurant> r = new List<Restaurant>();
             if (order != "")
             {
                 order.ToLower();
@@ -37,7 +38,9 @@ namespace ProjectZero.Libraries.Classes
                     restaurants.Sort();
                 else
                     restaurants = restaurants.OrderByDescending(x => x.Rating).ToList(); // In descending order based on average rating
-                return restaurants;
+                r = restaurants;
+                restaurants = ah.GetAllRestaurants();
+                return r;
             }
             return restaurants;
         }
@@ -75,7 +78,7 @@ namespace ProjectZero.Libraries.Classes
         public List<Restaurant> TopThreeRestaurants()
         {
             List<Restaurant> r = new List<Restaurant>();
-            restaurants.OrderByDescending(x => x.Rating); // sort the restaurants in Descending order
+            restaurants = restaurants.OrderByDescending(x => x.Rating).ToList(); // sort the restaurants in Descending order
             for (int i = 0; i < 3; i++)
             {
                 r.Add(restaurants[i]);
@@ -94,6 +97,7 @@ namespace ProjectZero.Libraries.Classes
             foreach (var rest in topThree)
             {
                 sb.Append(count + ".)\t" + rest.ToString() + "\n");
+                count++;
             }
             return sb.ToString();
         }

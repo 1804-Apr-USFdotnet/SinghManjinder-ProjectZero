@@ -54,10 +54,68 @@ namespace ProjectZero.Client
 
                 if (input == 1)
                 {
-                    System.Console.WriteLine("Enter the name of the restaurant:");
-                    string ins = System.Console.ReadLine();
-                    var result = io.Search(ins);
-                    System.Console.WriteLine(result[0].ToString());
+                    // Ask if to display in ascending or descending order
+                    System.Console.WriteLine("Ascending or Descending order: (A/D)");
+                    var order = System.Console.ReadLine();
+                    while (order.ToUpper() != "A" && order.ToUpper() != "D")
+                    {
+                        System.Console.WriteLine("Please enter A or D");
+                        order = System.Console.ReadLine();
+                    }
+
+                    List<Libraries.Classes.Restaurant> result = new List<Libraries.Classes.Restaurant>();
+                    if (order.ToUpper() == "A")
+                    {
+                        result = io.GetAll("ascending");
+                    }
+                    else
+                        result = io.GetAll("descending");
+
+                    // Output the restaurants
+                    int count = 1;
+                    foreach (var rest in result)
+                    {
+                        System.Console.WriteLine(count + ".)\t" +rest.ToString());
+                        count++;
+                    }
+
+                    System.Console.WriteLine("Select a Restaurant");
+                    input = Convert.ToInt32(System.Console.ReadLine());
+                    while (input > count || input < 1)
+                    {
+                        System.Console.WriteLine("Select a Restaurant:");
+                        input = Convert.ToInt32(System.Console.ReadLine());
+                    }
+
+                    int restID = result[input - 1].RestaurantID;
+
+                    // Display the review options
+                    System.Console.WriteLine("Select an option:");
+                    System.Console.WriteLine(io.RestaurantOptions());
+                    input = Convert.ToInt32(System.Console.ReadLine());
+
+                    if (input != 9)
+                    {
+                        while (input < 1 || input > 2)
+                        {
+                            System.Console.WriteLine(io.RestaurantOptions());
+                            input = Convert.ToInt32(System.Console.ReadLine());
+                            if (input == 9)
+                                break;
+                        }
+                        List<Libraries.Classes.Review> reviews = new List<Libraries.Classes.Review>();
+                        if (input != 9)
+                            reviews = io.AllReviews(restID, input);
+                        else
+                            break;
+
+                        // Output all of the reviews
+                        foreach (var review in reviews)
+                        {
+                            System.Console.WriteLine(review.ToString());
+                        }
+                    }
+
                 }
                 else if (input == 2)
                 {
@@ -71,13 +129,13 @@ namespace ProjectZero.Client
                 {
                     //AccessHelper ah = new AccessHelper();
                     //var rests = ah.GetAllRestaurants();
-                    var rests = func.AllRestaurants();
-                    int count = 1;
-                    foreach (var r in rests)
-                    {
-                        System.Console.WriteLine(count + ".)\t" + r.ToString());
-                        count++;
-                    }
+                    //var rests = func.AllRestaurants();
+                    //int count = 1;
+                    //foreach (var r in rests)
+                    //{
+                    //    System.Console.WriteLine(count + ".)\t" + r.ToString());
+                    //    count++;
+                    //}
                 }
 
                 if (input == 9)
